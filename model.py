@@ -3,11 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class A3CNet(nn.Module):
-    """
-    Simple MLP A3C network for CartPole-v1.
-    - Observation space: Box(4,)  (cart position, velocity, pole angle, pole angular velocity)
-    - Action space: Discrete(2)   (left, right)
-    """
+    
     def __init__(self, num_actions: int):
         super().__init__()
 
@@ -20,12 +16,7 @@ class A3CNet(nn.Module):
         self.value = nn.Linear(128, 1)
 
     def forward(self, x: torch.Tensor):
-        """
-        x: tensor of shape [B, 4]
-        returns:
-          - logits: [B, num_actions]
-          - value:  [B, 1]
-        """
+        
         x = x.float()
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))

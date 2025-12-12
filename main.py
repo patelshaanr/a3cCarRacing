@@ -78,7 +78,6 @@ def run_multiprocess():
 
 
 def run_single_worker_debug():
-    """Run a single worker in the main process to debug logic without multiprocessing."""
     print("[MAIN-DEBUG] Running single-worker debug mode...", flush=True)
 
     num_actions =2
